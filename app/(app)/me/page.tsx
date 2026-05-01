@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import TicketQR from './ticket-qr';
 import LogoutButton from './logout-button';
+import Sponsors from '@/components/sponsors';
 
 const AREA_LABELS: Record<string, string> = {
   geoscience: 'Geociência',
@@ -54,6 +55,8 @@ export default async function MePage() {
       </div>
 
       <LogoutButton />
+
+      <Sponsors size="sm" label="Promovido por" className="mt-12 pb-4" />
     </section>
   );
 }

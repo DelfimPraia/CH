@@ -22,7 +22,7 @@ export default async function SpeakerDetail({ params }: { params: { id: string }
 
   return (
     <article className="px-4 py-6">
-      <Link href="/speakers" className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400">
+      <Link href="/people?tab=speakers" className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400">
         <ArrowLeft className="h-4 w-4" /> Palestrantes
       </Link>
 
@@ -64,7 +64,7 @@ export default async function SpeakerDetail({ params }: { params: { id: string }
           <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">Sessões</h2>
           <ul className="mt-3 space-y-2">
             {sessionLinks.map((link) => {
-              const s = link.session as { id: string; title: string; starts_at: string } | null;
+              const s = link.session as unknown as { id: string; title: string; starts_at: string } | null;
               if (!s) return null;
               return (
                 <li key={s.id}>

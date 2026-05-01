@@ -18,9 +18,9 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="mx-auto flex min-h-dvh max-w-2xl flex-col">
-      <header className="sticky top-0 z-30 flex items-center justify-between border-b border-slate-200 bg-white/80 px-4 py-3 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
-        <Link href="/agenda" className="font-semibold tracking-tight">
-          AI Oil &amp; Gas <span className="text-brand-600">·</span> 2026
+      <header className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#0b1220]/80 px-4 py-3 backdrop-blur">
+        <Link href="/now" className="font-semibold tracking-tight">
+          AI Oil &amp; Gas <span className="text-cyan-400">·</span> 2026
         </Link>
         <NotificationsBell userId={user.id} />
       </header>

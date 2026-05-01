@@ -47,7 +47,7 @@ export default function RegisterForm() {
     }
     // If email confirmations are OFF, session is set immediately → go to agenda.
     if (data.session) {
-      router.replace('/agenda');
+      router.replace('/now');
       router.refresh();
       return;
     }

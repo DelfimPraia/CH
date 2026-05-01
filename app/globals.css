@@ -3,15 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: 250 250 252;
-  --foreground: 11 18 32;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: 11 18 32;
-    --foreground: 248 250 252;
-  }
+  --background: 11 18 32;          /* #0b1220 — navy do hero */
+  --foreground: 248 250 252;       /* slate-50 */
 }
 
 html, body {
@@ -21,24 +14,24 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
+/* ---------- shared component classes ---------- */
+
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium
            transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
   }
-  .btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700; }
-  .btn-secondary { @apply btn bg-slate-100 text-ink hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700; }
-  .btn-ghost { @apply btn bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800; }
+  .btn-primary { @apply btn bg-cyan-400 text-[#0b1220] hover:bg-cyan-300; }
+  .btn-secondary { @apply btn bg-white/5 text-slate-100 ring-1 ring-inset ring-white/10 hover:bg-white/10; }
+  .btn-ghost { @apply btn bg-transparent text-slate-300 hover:bg-white/5; }
 
   .input {
-    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm
-           placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20
-           dark:border-slate-700 dark:bg-slate-900;
+    @apply w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-slate-100
+           placeholder:text-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20;
   }
 
   .card {
-    @apply rounded-xl border border-slate-200 bg-white p-4 shadow-sm
-           dark:border-slate-800 dark:bg-slate-900;
+    @apply rounded-xl border border-white/10 bg-white/[0.04] p-4 shadow-sm backdrop-blur-[1px];
   }
 
   .badge {

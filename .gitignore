@@ -14,4 +14,4 @@ dist/
 .idea/
 
 next-env.d.ts
-.tsbuildinfo
+*.tsbuildinfo

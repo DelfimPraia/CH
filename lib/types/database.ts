@@ -21,6 +21,9 @@ export type SessionType =
 export type SpeakerRole = 'speaker' | 'moderator';
 
 export interface Database {
+  __InternalSupabase: {
+    PostgrestVersion: '12';
+  };
   public: {
     Tables: {
       profiles: {
@@ -45,6 +48,7 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database['public']['Tables']['profiles']['Insert']>;
+        Relationships: [];
       };
       speakers: {
         Row: {
@@ -63,6 +67,7 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database['public']['Tables']['speakers']['Insert']>;
+        Relationships: [];
       };
       sessions: {
         Row: {
@@ -80,6 +85,7 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database['public']['Tables']['sessions']['Insert']>;
+        Relationships: [];
       };
       session_speakers: {
         Row: {
@@ -89,6 +95,22 @@ export interface Database {
         };
         Insert: Database['public']['Tables']['session_speakers']['Row'];
         Update: Partial<Database['public']['Tables']['session_speakers']['Row']>;
+        Relationships: [
+          {
+            foreignKeyName: 'session_speakers_session_id_fkey';
+            columns: ['session_id'];
+            isOneToOne: false;
+            referencedRelation: 'sessions';
+            referencedColumns: ['id'];
+          },
+          {
+            foreignKeyName: 'session_speakers_speaker_id_fkey';
+            columns: ['speaker_id'];
+            isOneToOne: false;
+            referencedRelation: 'speakers';
+            referencedColumns: ['id'];
+          }
+        ];
       };
       user_favorites: {
         Row: {
@@ -100,6 +122,22 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database['public']['Tables']['user_favorites']['Row']>;
+        Relationships: [
+          {
+            foreignKeyName: 'user_favorites_user_id_fkey';
+            columns: ['user_id'];
+            isOneToOne: false;
+            referencedRelation: 'profiles';
+            referencedColumns: ['id'];
+          },
+          {
+            foreignKeyName: 'user_favorites_session_id_fkey';
+            columns: ['session_id'];
+            isOneToOne: false;
+            referencedRelation: 'sessions';
+            referencedColumns: ['id'];
+          }
+        ];
       };
       check_ins: {
         Row: {
@@ -113,6 +151,7 @@ export interface Database {
           checked_in_at?: string;
         };
         Update: Partial<Database['public']['Tables']['check_ins']['Insert']>;
+        Relationships: [];
       };
       notifications: {
         Row: {
@@ -128,17 +167,63 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database['public']['Tables']['notifications']['Insert']>;
+        Relationships: [];
       };
       admins: {
         Row: { user_id: string };
         Insert: { user_id: string };
         Update: Partial<{ user_id: string }>;
+        Relationships: [];
+      };
+      questions: {
+        Row: {
+          id: string;
+          session_id: string;
+          user_id: string;
+          body: string;
+          is_answered: boolean;
+          created_at: string;
+        };
+        Insert: Omit<Database['public']['Tables']['questions']['Row'], 'id' | 'is_answered' | 'created_at'> & {
+          id?: string;
+          is_answered?: boolean;
+          created_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['questions']['Insert']>;
+        Relationships: [];
+      };
+      question_upvotes: {
+        Row: {
+          question_id: string;
+          user_id: string;
+          created_at: string;
+        };
+        Insert: Omit<Database['public']['Tables']['question_upvotes']['Row'], 'created_at'> & {
+          created_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['question_upvotes']['Row']>;
+        Relationships: [];
       };
     };
-    Views: Record<string, never>;
+    Views: {
+      questions_ranked: {
+        Row: {
+          id: string;
+          session_id: string;
+          user_id: string;
+          body: string;
+          is_answered: boolean;
+          created_at: string;
+          author_name: string;
+          upvote_count: number;
+        };
+        Relationships: [];
+      };
+    };
     Functions: {
       is_admin: { Args: Record<string, never>; Returns: boolean };
     };
     Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
 }
