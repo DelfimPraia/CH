@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ScanLine, Megaphone, BarChart3, ArrowRight } from 'lucide-react';
+import { ScanLine, Megaphone, BarChart3, Users, ArrowRight } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
@@ -16,7 +16,7 @@ export default async function AdminHub() {
   return (
     <section className="px-4 py-6">
       <h1 className="text-2xl font-bold">Painel Admin</h1>
-      <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+      <p className="mt-1 text-sm text-slate-400">
         Gestão do evento em tempo real.
       </p>
 
@@ -27,9 +27,10 @@ export default async function AdminHub() {
       </div>
 
       <div className="mt-8 space-y-3">
+        <Tile href="/admin/inscritos" icon={Users} title="Inscritos" description="Lista organizada de todos os participantes + download CSV (Excel)." />
         <Tile href="/admin/check-in" icon={ScanLine} title="Check-in" description="Validar bilhetes à entrada via QR." />
         <Tile href="/admin/notifications" icon={Megaphone} title="Enviar notificação" description="Broadcast para todos ou para uma sessão específica." />
-        <Tile href="/admin/stats" icon={BarChart3} title="Estatísticas" description="Inscritos por área, sessões mais favoritadas, taxa de presença." />
+        <Tile href="/admin/stats" icon={BarChart3} title="Estatísticas" description="Distribuição por área, sessões mais favoritadas, taxa de presença." />
       </div>
     </section>
   );
@@ -56,15 +57,15 @@ function Tile({
   description: string;
 }) {
   return (
-    <Link href={href} className="card flex items-center gap-3 hover:border-brand-400">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-100 text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
+    <Link href={href} className="card flex items-center gap-3 hover:border-cyan-400/40">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-300">
         <Icon className="h-5 w-5" />
       </div>
       <div className="min-w-0 flex-1">
         <p className="font-semibold">{title}</p>
         <p className="line-clamp-2 text-xs text-slate-500">{description}</p>
       </div>
-      <ArrowRight className="h-4 w-4 text-slate-400" />
+      <ArrowRight className="h-4 w-4 text-slate-500" />
     </Link>
   );
 }
