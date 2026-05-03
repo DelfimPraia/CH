@@ -42,11 +42,11 @@ export default async function LandingPage() {
           <ul className="mt-8 grid gap-3 text-sm">
             <li className="flex items-center gap-3">
               <CalendarDays className="h-5 w-5 text-cyan-400" />
-              <span><strong className="font-semibold">9 de Maio de 2026</strong> · 09:00 – 18:00</span>
+              <span><strong className="font-semibold">Sábado, 16 de Maio de 2026</strong> · 09H</span>
             </li>
             <li className="flex items-center gap-3">
               <MapPin className="h-5 w-5 text-cyan-400" />
-              <span>Local a confirmar</span>
+              <span>Huawei Angola office park</span>
             </li>
             <li className="flex items-center gap-3">
               <Users className="h-5 w-5 text-cyan-400" />

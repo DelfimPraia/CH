@@ -13,8 +13,8 @@ import Sponsors from '@/components/sponsors';
 
 export const dynamic = 'force-dynamic';
 
-const EVENT_DATE = '9 de Maio de 2026';
-const EVENT_LOCATION = 'Local a confirmar';
+const EVENT_DATE = '16 de Maio de 2026';
+const EVENT_LOCATION = 'Huawei Angola office park';
 
 export default async function HomeDashboard() {
   const supabase = createClient();
