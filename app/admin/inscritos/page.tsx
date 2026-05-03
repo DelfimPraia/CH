@@ -1,4 +1,4 @@
-import { Download, Search } from 'lucide-react';
+import { Download, FileText, Search } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
@@ -61,13 +61,22 @@ export default async function InscritosPage() {
             {totalCheckedIn > 0 && <> · {totalCheckedIn} check-ins ({checkInRate}%)</>}
           </p>
         </div>
-        <a
-          href="/api/admin/export/inscritos"
-          className="btn-primary shrink-0"
-          aria-label="Descarregar CSV de todos os inscritos"
-        >
-          <Download className="h-4 w-4" /> CSV
-        </a>
+        <div className="flex shrink-0 gap-2">
+          <a
+            href="/api/admin/export/inscritos?format=pdf"
+            className="btn-primary"
+            aria-label="Descarregar relatório PDF de todos os inscritos"
+          >
+            <FileText className="h-4 w-4" /> PDF
+          </a>
+          <a
+            href="/api/admin/export/inscritos?format=csv"
+            className="btn-secondary"
+            aria-label="Descarregar CSV de todos os inscritos"
+          >
+            <Download className="h-4 w-4" /> CSV
+          </a>
+        </div>
       </div>
 
       {/* KPIs */}
@@ -156,7 +165,7 @@ export default async function InscritosPage() {
 
       {/* Footer note */}
       <p className="mt-8 text-xs text-slate-500">
-        O ficheiro CSV é gerado em UTF-8 com BOM (compatível com Excel) e usa <code className="rounded bg-white/5 px-1">;</code> como separador.
+        <strong className="text-slate-300">PDF</strong> — relatório formatado com cabeçalho, KPIs, distribuição por área e tabela paginada (ideal para arquivar/imprimir). · <strong className="text-slate-300">CSV</strong> — UTF-8 com BOM e separador <code className="rounded bg-white/5 px-1">;</code> (abre direto no Excel com acentos corretos).
       </p>
     </section>
   );
