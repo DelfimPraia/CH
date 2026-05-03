@@ -6,6 +6,7 @@ import {
   Bell,
   Award,
   MapPin,
+  Download,
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import LiveClock from './live-clock';
@@ -142,6 +143,7 @@ export default async function HomeDashboard() {
           <Tile href="/people?tab=speakers" icon={Mic} label="Palestrantes" />
           <Tile href="/people?tab=participants" icon={Users} label="Participantes" />
           <Tile href="/notifications" icon={Bell} label="Notificações" badge={unreadCount ?? 0} />
+          <Tile href="/install" icon={Download} label="Instalar app" />
           <Tile href="#sponsors" icon={Award} label="Patrocinadores" />
         </div>
       </section>

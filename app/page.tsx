@@ -68,6 +68,13 @@ export default async function LandingPage() {
               Já tenho conta
             </Link>
           </div>
+
+          <Link
+            href="/install"
+            className="mt-4 inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300 hover:text-cyan-200"
+          >
+            📲 Instalar app no telemóvel
+          </Link>
         </div>
       </section>
 

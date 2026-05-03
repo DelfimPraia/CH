@@ -5,12 +5,28 @@ export const metadata: Metadata = {
   title: 'AI Oil & Gas Conference',
   description: 'Plataforma oficial do evento — agenda, palestrantes, networking e check-in.',
   manifest: '/manifest.json',
-  appleWebApp: { capable: true, statusBarStyle: 'default', title: 'AI O&G' },
-  other: { 'mobile-web-app-capable': 'yes' },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'AI O&G',
+    startupImage: ['/icons/icon.svg'],
+  },
+  icons: {
+    icon: [
+      { url: '/icons/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/icons/icon.svg', sizes: '180x180' },
+    ],
+  },
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'application-name': 'AI O&G',
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#1c70f5',
+  themeColor: '#22d3ee',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
