@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import {
   CalendarDays,
-  Ticket,
   Mic,
   Users,
   Bell,
@@ -132,12 +131,9 @@ export default async function HomeDashboard() {
         )}
       </section>
 
-      {/* ---------- Big tiles ---------- */}
+      {/* ---------- Big tile ---------- */}
       <section className="px-4 pt-5">
-        <div className="grid grid-cols-2 gap-3">
-          <BigTile href="/agenda" icon={CalendarDays} label="Programa" sublabel="Sessões do dia" />
-          <BigTile href="/me" icon={Ticket} label="O meu Bilhete" sublabel="QR para check-in" />
-        </div>
+        <BigTile href="/agenda" icon={CalendarDays} label="Programa" sublabel="Sessões do dia" />
       </section>
 
       {/* ---------- Grid tiles ---------- */}

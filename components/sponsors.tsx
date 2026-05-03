@@ -4,15 +4,15 @@ import { cn } from '@/lib/utils';
 type Variant = 'light' | 'dark';
 type Size = 'sm' | 'md' | 'lg';
 
-const SIZE: Record<Size, { box: string; copia: string; huawei: string; gap: string }> = {
-  sm: { box: 'p-2',   copia: 'h-10 w-10', huawei: 'h-6 w-auto', gap: 'gap-3' },
-  md: { box: 'p-3',   copia: 'h-14 w-14', huawei: 'h-8 w-auto', gap: 'gap-4' },
-  lg: { box: 'p-4',   copia: 'h-20 w-20', huawei: 'h-10 w-auto', gap: 'gap-5' },
+const SIZE: Record<Size, { copia: string; huawei: string; gap: string; pad: string; inner: string }> = {
+  sm: { copia: 'h-9 w-9',   huawei: 'h-5 w-auto', gap: 'gap-3', pad: 'p-2.5', inner: 'p-1.5' },
+  md: { copia: 'h-12 w-12', huawei: 'h-7 w-auto', gap: 'gap-4', pad: 'p-3',   inner: 'p-2' },
+  lg: { copia: 'h-16 w-16', huawei: 'h-9 w-auto', gap: 'gap-5', pad: 'p-4',   inner: 'p-2.5' },
 };
 
 export default function Sponsors({
   label = 'Promovido por',
-  variant = 'light',
+  variant: _variant = 'dark',
   size = 'md',
   className,
 }: {
@@ -21,49 +21,79 @@ export default function Sponsors({
   size?: Size;
   className?: string;
 }) {
-  const isDark = variant === 'dark';
   const s = SIZE[size];
 
   return (
-    <div className={cn('flex flex-col items-center gap-4', className)}>
+    <div className={cn('relative isolate', className)}>
+      {/* tech grid + radial glow background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 opacity-60"
+        style={{
+          backgroundImage: [
+            'radial-gradient(circle at 50% 30%, rgba(34, 211, 238, 0.10), transparent 65%)',
+            'linear-gradient(rgba(34, 211, 238, 0.05) 1px, transparent 1px)',
+            'linear-gradient(90deg, rgba(34, 211, 238, 0.05) 1px, transparent 1px)',
+          ].join(','),
+          backgroundSize: '100% 100%, 28px 28px, 28px 28px',
+        }}
+      />
+
       {label && (
-        <p className={cn(
-          'text-[11px] font-semibold uppercase tracking-[0.18em]',
-          isDark ? 'text-slate-400' : 'text-slate-500',
-        )}>
-          {label}
-        </p>
+        <div className="flex items-center justify-center gap-3">
+          <span className="h-px w-10 bg-gradient-to-r from-transparent to-cyan-400/50" />
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-cyan-300">
+            {label}
+          </p>
+          <span className="h-px w-10 bg-gradient-to-l from-transparent to-cyan-400/50" />
+        </div>
       )}
-      <div className={cn('flex items-center', s.gap)}>
-        <LogoCard padding={s.box}>
-          <Image
-            src="/logos/copia.jpg"
-            alt="Copia Group of Companies, SA"
-            width={400}
-            height={400}
-            className={cn(s.copia, 'object-contain')}
-            priority
-          />
-        </LogoCard>
-        <LogoCard padding={s.box}>
-          <Image
-            src="/logos/huawei.svg"
-            alt="Huawei"
-            width={320}
-            height={100}
-            className={cn(s.huawei, 'object-contain')}
-            priority
-          />
-        </LogoCard>
+
+      <div className={cn('mt-6 flex items-center justify-center', s.gap)}>
+        <LogoChip src="/logos/copia.jpg" alt="Copia Group of Companies, SA" pad={s.pad} inner={s.inner} imgClass={s.copia} />
+        <LogoChip src="/logos/huawei.svg" alt="Huawei" pad={s.pad} inner={s.inner} imgClass={s.huawei} />
       </div>
     </div>
   );
 }
 
-function LogoCard({ children, padding }: { children: React.ReactNode; padding: string }) {
+function LogoChip({
+  src,
+  alt,
+  pad,
+  inner,
+  imgClass,
+}: {
+  src: string;
+  alt: string;
+  pad: string;
+  inner: string;
+  imgClass: string;
+}) {
   return (
-    <div className={cn('flex items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-black/5', padding)}>
-      {children}
+    <div
+      className={cn(
+        'group relative rounded-xl border border-cyan-400/20 bg-white/[0.04] backdrop-blur-sm transition-all',
+        'hover:border-cyan-400/50 hover:bg-white/[0.08] hover:shadow-[0_0_24px_rgba(34,211,238,0.18)]',
+        pad,
+      )}
+    >
+      {/* corner accents — tech ticks */}
+      <span aria-hidden className="absolute left-0 top-0 h-2 w-2 border-l border-t border-cyan-400/60" />
+      <span aria-hidden className="absolute right-0 top-0 h-2 w-2 border-r border-t border-cyan-400/60" />
+      <span aria-hidden className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-cyan-400/60" />
+      <span aria-hidden className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-cyan-400/60" />
+
+      <div className={cn('flex items-center justify-center rounded-md bg-white', inner)}>
+        <Image
+          src={src}
+          alt={alt}
+          width={400}
+          height={400}
+          className={cn(imgClass, 'object-contain')}
+          priority
+        />
+      </div>
     </div>
   );
 }
