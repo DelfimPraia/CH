@@ -20,6 +20,8 @@ export type SessionType =
 
 export type SpeakerRole = 'speaker' | 'moderator';
 
+export type TrackTag = 'upstream' | 'midstream' | 'downstream';
+
 export interface Database {
   __InternalSupabase: {
     PostgrestVersion: '12';
@@ -75,6 +77,7 @@ export interface Database {
           title: string;
           description: string | null;
           type: SessionType;
+          track: TrackTag | null;
           starts_at: string;
           ends_at: string;
           location: string | null;

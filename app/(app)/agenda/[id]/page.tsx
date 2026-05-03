@@ -3,8 +3,9 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, MapPin, Clock } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import SessionTypeBadge from '@/components/session-type-badge';
+import TrackBadge from '@/components/track-badge';
 import QA, { type RankedQuestion } from './qa';
-import type { SessionType, SpeakerRole } from '@/lib/types/database';
+import type { SessionType, SpeakerRole, TrackTag } from '@/lib/types/database';
 
 export const dynamic = 'force-dynamic';
 
@@ -13,6 +14,7 @@ type SessionDetail = {
   title: string;
   description: string | null;
   type: SessionType;
+  track: TrackTag | null;
   starts_at: string;
   ends_at: string;
   location: string | null;
@@ -41,7 +43,7 @@ export default async function SessionDetail({ params }: { params: { id: string }
     supabase
       .from('sessions')
       .select(`
-        id, title, description, type, starts_at, ends_at, location,
+        id, title, description, type, track, starts_at, ends_at, location,
         session_speakers (
           role,
           speaker:speakers ( id, full_name, photo_url, institution, specialty )
@@ -78,7 +80,10 @@ export default async function SessionDetail({ params }: { params: { id: string }
       </Link>
 
       <div className="mt-4">
-        <SessionTypeBadge type={session.type} />
+        <div className="flex flex-wrap items-center gap-2">
+          <SessionTypeBadge type={session.type} />
+          {session.track && <TrackBadge track={session.track} showDot />}
+        </div>
         <h1 className="mt-2 text-2xl font-bold leading-tight">{session.title}</h1>
 
         <dl className="mt-4 space-y-2 text-sm text-slate-400">
