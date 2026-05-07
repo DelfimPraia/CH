@@ -14,7 +14,7 @@ import Sponsors from '@/components/sponsors';
 
 export const dynamic = 'force-dynamic';
 
-const EVENT_DATE = '16 de Maio de 2026';
+const EVENT_DATE = 'Quarta, 20 de Maio · 08H–14H';
 const EVENT_LOCATION = 'Huawei Angola office park';
 
 export default async function HomeDashboard() {

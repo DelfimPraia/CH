@@ -60,37 +60,40 @@ export default async function AgendaPage({
   const filtered = activeFilter.value === 'all'
     ? sessions
     : sessions.filter((s) => s.track === activeFilter.value);
+  const hasAnyTrack = sessions.some((s) => s.track !== null);
 
   return (
     <section className="px-4 py-6">
       <h1 className="text-2xl font-bold">Agenda</h1>
       <p className="mt-1 text-sm text-slate-400">
-        Sábado, 16 de Maio de 2026 · {sessions.length} sessões
+        Quarta-feira, 20 de Maio de 2026 · {sessions.length} sessões
       </p>
 
-      {/* Filter pills */}
-      <div className="mt-5 flex flex-wrap gap-1.5">
-        {TRACK_FILTERS.map((f) => (
-          <Link
-            key={f.value}
-            href={f.value === 'all' ? '/agenda' : `/agenda?track=${f.value}`}
-            scroll={false}
-            className={cn(
-              'rounded-full px-3 py-1 text-xs font-medium transition',
-              activeFilter.value === f.value
-                ? 'bg-cyan-400 text-[#0b1220]'
-                : 'bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]',
-            )}
-          >
-            {f.label}
-            {f.value !== 'all' && (
-              <span className="ml-1.5 text-[10px] opacity-70">
-                {sessions.filter((s) => s.track === f.value).length}
-              </span>
-            )}
-          </Link>
-        ))}
-      </div>
+      {/* Filter pills (only shown if any session has a track) */}
+      {hasAnyTrack && (
+        <div className="mt-5 flex flex-wrap gap-1.5">
+          {TRACK_FILTERS.map((f) => (
+            <Link
+              key={f.value}
+              href={f.value === 'all' ? '/agenda' : `/agenda?track=${f.value}`}
+              scroll={false}
+              className={cn(
+                'rounded-full px-3 py-1 text-xs font-medium transition',
+                activeFilter.value === f.value
+                  ? 'bg-cyan-400 text-[#0b1220]'
+                  : 'bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]',
+              )}
+            >
+              {f.label}
+              {f.value !== 'all' && (
+                <span className="ml-1.5 text-[10px] opacity-70">
+                  {sessions.filter((s) => s.track === f.value).length}
+                </span>
+              )}
+            </Link>
+          ))}
+        </div>
+      )}
 
       {filtered.length === 0 ? (
         <p className="mt-6 rounded-lg border border-dashed border-white/10 p-6 text-center text-sm text-slate-500">
