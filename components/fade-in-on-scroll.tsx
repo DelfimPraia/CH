@@ -13,8 +13,12 @@ type Props = {
   delay?: number;
   duration?: number;
   y?: number;
-  /** Selector targeting children to stagger (e.g. '> *', '.card'). If set, children animate in sequence. */
-  stagger?: string;
+  /**
+   * If `true`, staggers direct children. If a CSS selector string, staggers
+   * matching descendants. Selectors starting with `>` are scoped to the
+   * wrapper automatically.
+   */
+  stagger?: boolean | string;
   className?: string;
 };
 
@@ -37,7 +41,16 @@ export default function FadeInOnScroll({
     if (!el) return;
 
     const ctx = gsap.context(() => {
-      const targets = stagger ? el.querySelectorAll(stagger) : el;
+      let targets: Element | ArrayLike<Element>;
+      if (stagger === true) {
+        targets = Array.from(el.children);
+      } else if (typeof stagger === 'string') {
+        const selector = stagger.trim().startsWith('>') ? `:scope ${stagger}` : stagger;
+        targets = el.querySelectorAll(selector);
+      } else {
+        targets = el;
+      }
+
       gsap.fromTo(
         targets,
         { opacity: 0, y },

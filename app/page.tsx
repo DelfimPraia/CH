@@ -106,7 +106,7 @@ export default async function LandingPage() {
             </FadeInOnScroll>
 
             <FadeInOnScroll
-              stagger="> div"
+              stagger
               className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2"
             >
               <Feature
@@ -159,7 +159,7 @@ export default async function LandingPage() {
               </p>
             </FadeInOnScroll>
 
-            <FadeInOnScroll stagger="> div" className="mt-10 grid gap-4 sm:grid-cols-2">
+            <FadeInOnScroll stagger className="mt-10 grid gap-4 sm:grid-cols-2">
               <InstitutionGroup
                 icon={Building2}
                 label="Governo"
