@@ -1,5 +1,6 @@
 import { Download, FileText, Search } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
+import AnimatedNumber from '@/components/animated-number';
 
 export const dynamic = 'force-dynamic';
 
@@ -174,7 +175,9 @@ export default async function InscritosPage() {
 function KPI({ label, value }: { label: string; value: number }) {
   return (
     <div className="card text-center">
-      <p className="text-2xl font-bold tabular-nums">{value}</p>
+      <p className="text-2xl font-bold tabular-nums">
+        <AnimatedNumber value={value} />
+      </p>
       <p className="mt-0.5 text-xs uppercase tracking-wider text-slate-500">{label}</p>
     </div>
   );

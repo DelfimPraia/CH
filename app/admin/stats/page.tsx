@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+import AnimatedNumber from '@/components/animated-number';
 
 export const dynamic = 'force-dynamic';
 
@@ -117,9 +118,11 @@ export default async function StatsPage() {
 function KPI({ label, value, sublabel }: { label: string; value: number; sublabel?: string }) {
   return (
     <div className="card">
-      <p className="text-3xl font-bold tabular-nums">{value}</p>
+      <p className="text-3xl font-bold tabular-nums">
+        <AnimatedNumber value={value} />
+      </p>
       <p className="mt-1 text-xs uppercase tracking-wider text-slate-500">{label}</p>
-      {sublabel && <p className="mt-0.5 text-xs text-brand-600">{sublabel}</p>}
+      {sublabel && <p className="mt-0.5 text-xs text-cyan-300">{sublabel}</p>}
     </div>
   );
 }
