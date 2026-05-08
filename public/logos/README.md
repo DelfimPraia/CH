@@ -4,8 +4,8 @@ Ficheiros usados pelo componente [`<Sponsors />`](../../components/sponsors.tsx)
 
 | Ficheiro | Patrocinador | Estado |
 |---|---|---|
-| `copia.jpg` | Copia Group of Companies, SA | Logo oficial (escudo, fundo branco) |
-| `huawei.svg` | Huawei | Placeholder textual — substituir pelo logo oficial |
+| `copia.jpg` | Copia Group of Companies, SA | Logo oficial landscape (escudo + texto, fundo branco) |
+| `huawei.png` | Huawei | Logo oficial (flor + wordmark, fundo branco) |
 
 ## Como o componente os mostra
 Cada logo aparece dentro de um *cartão branco* arredondado (`<LogoCard>`),

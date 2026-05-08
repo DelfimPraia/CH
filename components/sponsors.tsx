@@ -4,10 +4,13 @@ import { cn } from '@/lib/utils';
 type Variant = 'light' | 'dark';
 type Size = 'sm' | 'md' | 'lg';
 
-const SIZE: Record<Size, { copia: string; huawei: string; gap: string; pad: string; inner: string }> = {
-  sm: { copia: 'h-9 w-9',   huawei: 'h-5 w-auto', gap: 'gap-3', pad: 'p-2.5', inner: 'p-1.5' },
-  md: { copia: 'h-12 w-12', huawei: 'h-7 w-auto', gap: 'gap-4', pad: 'p-3',   inner: 'p-2' },
-  lg: { copia: 'h-16 w-16', huawei: 'h-9 w-auto', gap: 'gap-5', pad: 'p-4',   inner: 'p-2.5' },
+// Both logos render at the same height (`w-auto` lets each respect its own
+// aspect ratio: Huawei is roughly square, Copia is wide landscape with text).
+// The chips end up different widths but the logos themselves look balanced.
+const SIZE: Record<Size, { logo: string; gap: string; pad: string; inner: string }> = {
+  sm: { logo: 'h-7 w-auto',  gap: 'gap-3', pad: 'p-2.5', inner: 'px-2 py-1.5' },
+  md: { logo: 'h-10 w-auto', gap: 'gap-4', pad: 'p-3',   inner: 'px-3 py-2' },
+  lg: { logo: 'h-14 w-auto', gap: 'gap-5', pad: 'p-4',   inner: 'px-4 py-2.5' },
 };
 
 export default function Sponsors({
@@ -49,9 +52,27 @@ export default function Sponsors({
         </div>
       )}
 
-      <div className={cn('mt-6 flex items-center justify-center', s.gap)}>
-        <LogoChip src="/logos/copia.jpg" alt="Copia Group of Companies, SA" pad={s.pad} inner={s.inner} imgClass={s.copia} />
-        <LogoChip src="/logos/huawei.svg" alt="Huawei" pad={s.pad} inner={s.inner} imgClass={s.huawei} />
+      <div className={cn('mt-6 flex flex-wrap items-center justify-center', s.gap)}>
+        <LogoChip
+          src="/logos/copia.jpg"
+          alt="Copia Group of Companies, SA"
+          pad={s.pad}
+          inner={s.inner}
+          imgClass={s.logo}
+          /* Copia logo is landscape (~3.7:1), so its natural width is ~3.7x its height */
+          width={1850}
+          height={500}
+        />
+        <LogoChip
+          src="/logos/huawei.png"
+          alt="Huawei"
+          pad={s.pad}
+          inner={s.inner}
+          imgClass={s.logo}
+          /* Huawei logo is roughly square (~1:1) */
+          width={500}
+          height={500}
+        />
       </div>
     </div>
   );
@@ -63,12 +84,16 @@ function LogoChip({
   pad,
   inner,
   imgClass,
+  width,
+  height,
 }: {
   src: string;
   alt: string;
   pad: string;
   inner: string;
   imgClass: string;
+  width: number;
+  height: number;
 }) {
   return (
     <div
@@ -88,8 +113,8 @@ function LogoChip({
         <Image
           src={src}
           alt={alt}
-          width={400}
-          height={400}
+          width={width}
+          height={height}
           className={cn(imgClass, 'object-contain')}
           priority
         />
