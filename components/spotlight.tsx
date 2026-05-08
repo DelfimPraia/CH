@@ -62,7 +62,7 @@ export default function Spotlight({
         className,
       )}
       style={{
-        background: `radial-gradient(${size}px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(34, 211, 238, ${intensity}), transparent 45%)`,
+        background: `radial-gradient(${size}px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(249, 115, 22, ${intensity}), transparent 45%)`,
       }}
     />
   );

@@ -108,13 +108,13 @@ export default function InstallControls() {
           highlighted={platform === 'android'}
         >
           <Step n={1}>
-            Toca em <strong className="text-cyan-300">"Instalar agora"</strong> acima
+            Toca em <strong className="text-orange-400">"Instalar agora"</strong> acima
             (botão azul, aparece automaticamente).
           </Step>
           <Step n={2}>
             Se não vires o botão: toca no menu <MoreVertical className="inline h-4 w-4" /> (3 pontos
-            no canto superior direito) → <strong className="text-cyan-300">"Instalar app"</strong>{' '}
-            ou <strong className="text-cyan-300">"Adicionar ao ecrã principal"</strong>.
+            no canto superior direito) → <strong className="text-orange-400">"Instalar app"</strong>{' '}
+            ou <strong className="text-orange-400">"Adicionar ao ecrã principal"</strong>.
           </Step>
           <Step n={3}>Confirma — o ícone aparece no ecrã principal como qualquer outra app.</Step>
         </Section>
@@ -126,14 +126,14 @@ export default function InstallControls() {
           warning="Tem de ser no Safari — Chrome/Firefox no iOS não suportam instalação."
         >
           <Step n={1}>
-            Toca em <Share className="inline h-4 w-4" /> <strong className="text-cyan-300">Partilhar</strong>{' '}
+            Toca em <Share className="inline h-4 w-4" /> <strong className="text-orange-400">Partilhar</strong>{' '}
             (ícone de quadrado com seta para cima, na barra inferior).
           </Step>
           <Step n={2}>
             Desliza até veres <Plus className="inline h-4 w-4" />{' '}
-            <strong className="text-cyan-300">"Adicionar ao Ecrã Principal"</strong> e toca.
+            <strong className="text-orange-400">"Adicionar ao Ecrã Principal"</strong> e toca.
           </Step>
-          <Step n={3}>Toca em <strong className="text-cyan-300">"Adicionar"</strong> no canto superior direito.</Step>
+          <Step n={3}>Toca em <strong className="text-orange-400">"Adicionar"</strong> no canto superior direito.</Step>
         </Section>
 
         <Section
@@ -146,7 +146,7 @@ export default function InstallControls() {
             endereço (lado direito).
           </Step>
           <Step n={2}>
-            Em alternativa: menu de 3 pontos → <strong className="text-cyan-300">"Instalar AI Oil &amp; Gas"</strong>.
+            Em alternativa: menu de 3 pontos → <strong className="text-orange-400">"Instalar AI Oil &amp; Gas"</strong>.
           </Step>
           <Step n={3}>A app abre numa janela própria, sem barra de browser.</Step>
         </Section>
@@ -168,7 +168,7 @@ function PlatformTab({
     <div
       className={cn(
         'flex items-center justify-center gap-2 rounded-md px-3 py-2 text-xs font-medium transition',
-        active ? 'bg-cyan-400 text-[#0b1220]' : 'text-slate-400',
+        active ? 'bg-orange-500 text-[#0b1220]' : 'text-slate-400',
       )}
     >
       <Icon className="h-4 w-4" />
@@ -194,11 +194,11 @@ function Section({
     <div
       className={cn(
         'card transition-colors',
-        highlighted && 'border-cyan-400/50 bg-cyan-400/[0.06]',
+        highlighted && 'border-orange-500/50 bg-orange-500/[0.06]',
       )}
     >
       <div className="flex items-center gap-2">
-        <Icon className={cn('h-5 w-5', highlighted ? 'text-cyan-300' : 'text-slate-400')} />
+        <Icon className={cn('h-5 w-5', highlighted ? 'text-orange-400' : 'text-slate-400')} />
         <h3 className="font-semibold">{title}</h3>
       </div>
       {warning && (
@@ -214,7 +214,7 @@ function Section({
 function Step({ n, children }: { n: number; children: React.ReactNode }) {
   return (
     <li className="flex gap-3">
-      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cyan-400/15 text-[10px] font-bold text-cyan-300">
+      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-[10px] font-bold text-orange-400">
         {n}
       </span>
       <span className="leading-relaxed">{children}</span>

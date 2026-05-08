@@ -12,18 +12,18 @@ export default function InstallPage() {
     <main className="mx-auto flex min-h-dvh max-w-md flex-col px-4 pb-10 pt-6">
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 hover:text-cyan-300"
+        className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 hover:text-orange-400"
       >
         <ArrowLeft className="h-3.5 w-3.5" /> Início
       </Link>
 
       <header className="mt-8">
-        <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-cyan-400">
+        <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-orange-500">
           Instalar app
         </p>
         <h1 className="mt-2 text-3xl font-bold leading-tight">
           Tem a app sempre<br />
-          <span className="text-cyan-400">à mão</span>.
+          <span className="text-orange-500">à mão</span>.
         </h1>
         <p className="mt-3 text-sm leading-relaxed text-slate-400">
           Instala em segundos no telemóvel ou computador. Funciona como qualquer
@@ -61,7 +61,7 @@ function Benefit({
 }) {
   return (
     <li className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs">
-      <Icon className="h-4 w-4 text-cyan-400" />
+      <Icon className="h-4 w-4 text-orange-500" />
       <span className="font-medium">{label}</span>
     </li>
   );

@@ -122,7 +122,7 @@ function KPI({ label, value, sublabel }: { label: string; value: number; sublabe
         <AnimatedNumber value={value} />
       </p>
       <p className="mt-1 text-xs uppercase tracking-wider text-slate-500">{label}</p>
-      {sublabel && <p className="mt-0.5 text-xs text-cyan-300">{sublabel}</p>}
+      {sublabel && <p className="mt-0.5 text-xs text-orange-400">{sublabel}</p>}
     </div>
   );
 }

@@ -60,8 +60,8 @@ function Tile({
   description: string;
 }) {
   return (
-    <Link href={href} className="card flex items-center gap-3 hover:border-cyan-400/40">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-300">
+    <Link href={href} className="card flex items-center gap-3 hover:border-orange-500/40">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-orange-500/10 text-orange-400">
         <Icon className="h-5 w-5" />
       </div>
       <div className="min-w-0 flex-1">

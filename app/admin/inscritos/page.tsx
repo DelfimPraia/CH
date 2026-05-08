@@ -95,7 +95,7 @@ export default async function InscritosPage() {
             {sortedAreas.map(([k, n]) => (
               <li key={k} className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-sm">
                 <span>{AREA_LABELS[k] ?? k}</span>
-                <span className="font-semibold tabular-nums text-cyan-300">{n}</span>
+                <span className="font-semibold tabular-nums text-orange-400">{n}</span>
               </li>
             ))}
           </ul>
@@ -138,7 +138,7 @@ export default async function InscritosPage() {
                       </td>
                       <td className="px-3 py-2.5 text-xs">
                         {p.area ? (
-                          <span className="badge bg-cyan-400/10 text-cyan-300">
+                          <span className="badge bg-orange-500/10 text-orange-400">
                             {AREA_LABELS[p.area] ?? p.area}
                           </span>
                         ) : <span className="text-slate-500">—</span>}

@@ -22,7 +22,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <Link href="/now" className="rounded-full p-2 hover:bg-white/5" aria-label="Voltar">
           <ArrowLeft className="h-5 w-5" />
         </Link>
-        <span className="text-sm font-semibold uppercase tracking-wider text-cyan-400">Admin</span>
+        <span className="text-sm font-semibold uppercase tracking-wider text-orange-500">Admin</span>
       </header>
       <main className="flex-1 pb-12">{children}</main>
     </div>

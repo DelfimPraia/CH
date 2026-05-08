@@ -113,8 +113,8 @@ export default async function SessionDetail({ params }: { params: { id: string }
               if (!sp) return null;
               return (
                 <li key={sp.id}>
-                  <Link href={`/speakers/${sp.id}`} className="card flex items-center gap-3 hover:border-cyan-400/40">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-400/10 font-semibold text-cyan-300">
+                  <Link href={`/speakers/${sp.id}`} className="card flex items-center gap-3 hover:border-orange-500/40">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/10 font-semibold text-orange-400">
                       {sp.full_name.split(' ').slice(0, 2).map((n) => n[0]).join('')}
                     </div>
                     <div className="min-w-0">

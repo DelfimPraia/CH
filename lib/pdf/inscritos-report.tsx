@@ -32,8 +32,8 @@ export type CheckInRow = { user_id: string; checked_in_at: string };
 const COLORS = {
   navy: '#0b1220',
   navySoft: '#1e293b',
-  cyan: '#06b6d4',
-  cyanDark: '#0e7490',
+  cyan: '#ea580c',
+  cyanDark: '#9a3412',
   white: '#ffffff',
   text: '#0f172a',
   muted: '#64748b',

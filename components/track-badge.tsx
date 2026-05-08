@@ -2,7 +2,7 @@ import type { TrackTag } from '@/lib/types/database';
 import { cn } from '@/lib/utils';
 
 const STYLES: Record<TrackTag, { label: string; className: string; dot: string }> = {
-  upstream:   { label: 'UPSTREAM',   className: 'bg-cyan-400/10 text-cyan-300 ring-1 ring-inset ring-cyan-400/30',     dot: 'bg-cyan-400' },
+  upstream:   { label: 'UPSTREAM',   className: 'bg-orange-500/10 text-orange-400 ring-1 ring-inset ring-orange-500/30',     dot: 'bg-orange-500' },
   midstream:  { label: 'MIDSTREAM',  className: 'bg-purple-400/10 text-purple-300 ring-1 ring-inset ring-purple-400/30', dot: 'bg-purple-400' },
   downstream: { label: 'DOWNSTREAM', className: 'bg-emerald-400/10 text-emerald-300 ring-1 ring-inset ring-emerald-400/30', dot: 'bg-emerald-400' },
 };

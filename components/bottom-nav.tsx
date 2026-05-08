@@ -29,7 +29,7 @@ export default function BottomNav({ isAdmin }: { isAdmin: boolean }) {
               href={href}
               className={cn(
                 'flex flex-col items-center gap-1 px-2 py-3 text-xs',
-                active ? 'text-cyan-400' : 'text-slate-400 hover:text-slate-200',
+                active ? 'text-orange-500' : 'text-slate-400 hover:text-slate-200',
               )}
             >
               <Icon className="h-5 w-5" />

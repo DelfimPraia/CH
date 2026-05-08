@@ -135,7 +135,7 @@ function TabButton({ active, onClick, count, children }: { active: boolean; onCl
       onClick={onClick}
       className={cn(
         'flex-1 rounded-md px-3 py-2 text-sm font-medium transition',
-        active ? 'bg-cyan-400 text-[#0b1220] shadow-sm' : 'text-slate-400 hover:text-slate-100',
+        active ? 'bg-orange-500 text-[#0b1220] shadow-sm' : 'text-slate-400 hover:text-slate-100',
       )}
     >
       {children} <span className="ml-1 text-xs text-slate-400">{count}</span>

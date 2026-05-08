@@ -32,17 +32,17 @@ export default async function LandingPage() {
       <main className="min-h-dvh bg-[#0b1220] text-white">
         {/* ---------- Hero ---------- */}
         <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(6,182,212,0.15),_transparent_60%)]" aria-hidden />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(234,88,12,0.15),_transparent_60%)]" aria-hidden />
           <Spotlight size={700} intensity={0.18} />
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" aria-hidden />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" aria-hidden />
 
           <FadeInOnScroll className="relative mx-auto max-w-2xl px-6 pt-12 pb-16">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-400">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-500">
               Transformação Digital 4.0
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-[1.05] sm:text-5xl">
               AI Oil &amp; Gas<br />
-              <span className="text-cyan-400">Conference</span>
+              <span className="text-orange-500">Conference</span>
             </h1>
             <p className="mt-4 max-w-md text-base leading-relaxed text-slate-300">
               <strong className="text-white">Aplicação da Inteligência Artificial na Indústria
@@ -52,19 +52,19 @@ export default async function LandingPage() {
 
             <ul className="mt-8 grid gap-3 text-sm">
               <li className="flex items-center gap-3">
-                <CalendarDays className="h-5 w-5 text-cyan-400" />
+                <CalendarDays className="h-5 w-5 text-orange-500" />
                 <span><strong className="font-semibold">Quarta-feira, 20 de Maio de 2026</strong></span>
               </li>
               <li className="flex items-center gap-3">
-                <Clock className="h-5 w-5 text-cyan-400" />
+                <Clock className="h-5 w-5 text-orange-500" />
                 <span>08H00 – 14H00</span>
               </li>
               <li className="flex items-center gap-3">
-                <MapPin className="h-5 w-5 text-cyan-400" />
+                <MapPin className="h-5 w-5 text-orange-500" />
                 <span>Huawei Angola office park</span>
               </li>
               <li className="flex items-center gap-3">
-                <Users className="h-5 w-5 text-cyan-400" />
+                <Users className="h-5 w-5 text-orange-500" />
                 <span>Academia · Telecomunicações · Setor Petrolífero</span>
               </li>
             </ul>
@@ -72,7 +72,7 @@ export default async function LandingPage() {
             <div className="mt-10 grid gap-3 sm:grid-cols-2">
               <Link
                 href="/register"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-5 py-3 text-sm font-semibold text-[#0b1220] transition-transform hover:scale-[1.02] hover:bg-cyan-300"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-orange-500 px-5 py-3 text-sm font-semibold text-[#0b1220] transition-transform hover:scale-[1.02] hover:bg-orange-400"
               >
                 Inscrever-me <ArrowRight className="h-4 w-4" />
               </Link>
@@ -86,7 +86,7 @@ export default async function LandingPage() {
 
             <Link
               href="/install"
-              className="mt-4 inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300 transition-colors hover:text-cyan-200"
+              className="mt-4 inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-orange-400 transition-colors hover:text-orange-300"
             >
               📲 Instalar app no telemóvel
             </Link>
@@ -97,7 +97,7 @@ export default async function LandingPage() {
         <section className="border-t border-white/10 py-16">
           <div className="mx-auto max-w-2xl px-6">
             <FadeInOnScroll>
-              <h2 className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-400">
+              <h2 className="text-xs font-bold uppercase tracking-[0.25em] text-orange-500">
                 Plataforma do evento
               </h2>
               <p className="mt-3 text-2xl font-bold leading-tight sm:text-3xl">
@@ -144,10 +144,10 @@ export default async function LandingPage() {
         </section>
 
         {/* ---------- Instituições convidadas ---------- */}
-        <section className="border-t border-white/10 bg-gradient-to-b from-cyan-400/[0.03] to-transparent py-16">
+        <section className="border-t border-white/10 bg-gradient-to-b from-orange-500/[0.03] to-transparent py-16">
           <div className="mx-auto max-w-2xl px-6">
             <FadeInOnScroll>
-              <h2 className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-400">
+              <h2 className="text-xs font-bold uppercase tracking-[0.25em] text-orange-500">
                 Convidados Estratégicos
               </h2>
               <p className="mt-3 text-2xl font-bold leading-tight sm:text-3xl">
@@ -207,7 +207,7 @@ export default async function LandingPage() {
             </p>
             <Link
               href="/register"
-              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-6 py-3 text-sm font-semibold text-[#0b1220] transition-transform hover:scale-[1.02] hover:bg-cyan-300"
+              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-sm font-semibold text-[#0b1220] transition-transform hover:scale-[1.02] hover:bg-orange-400"
             >
               Inscrever-me <ArrowRight className="h-4 w-4" />
             </Link>
@@ -232,8 +232,8 @@ function Feature({
   body: string;
 }) {
   return (
-    <div className="group bg-[#0b1220] p-6 transition-colors hover:bg-cyan-400/[0.02]">
-      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-400 transition-transform group-hover:scale-110">
+    <div className="group bg-[#0b1220] p-6 transition-colors hover:bg-orange-500/[0.02]">
+      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500/10 text-orange-500 transition-transform group-hover:scale-110">
         <Icon className="h-5 w-5" />
       </div>
       <h3 className="mt-4 font-semibold">{title}</h3>
@@ -252,19 +252,19 @@ function InstitutionGroup({
   entries: string[];
 }) {
   return (
-    <div className="rounded-xl border border-white/10 bg-white/[0.04] p-5 transition-colors hover:border-cyan-400/30 hover:bg-white/[0.06]">
+    <div className="rounded-xl border border-white/10 bg-white/[0.04] p-5 transition-colors hover:border-orange-500/30 hover:bg-white/[0.06]">
       <div className="flex items-center gap-2.5">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-300">
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500/10 text-orange-400">
           <Icon className="h-4 w-4" />
         </div>
-        <h3 className="text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-300">
+        <h3 className="text-[11px] font-bold uppercase tracking-[0.18em] text-orange-400">
           {label}
         </h3>
       </div>
       <ul className="mt-3 space-y-1.5 text-sm leading-snug text-slate-300">
         {entries.map((e) => (
           <li key={e} className="flex gap-2">
-            <span className="select-none text-cyan-500/60">·</span>
+            <span className="select-none text-orange-600/60">·</span>
             <span>{e}</span>
           </li>
         ))}

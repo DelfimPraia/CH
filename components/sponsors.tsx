@@ -31,9 +31,9 @@ export default function Sponsors({
         className="pointer-events-none absolute inset-0 -z-10 opacity-60"
         style={{
           backgroundImage: [
-            'radial-gradient(circle at 50% 30%, rgba(34, 211, 238, 0.10), transparent 65%)',
-            'linear-gradient(rgba(34, 211, 238, 0.05) 1px, transparent 1px)',
-            'linear-gradient(90deg, rgba(34, 211, 238, 0.05) 1px, transparent 1px)',
+            'radial-gradient(circle at 50% 30%, rgba(249, 115, 22, 0.10), transparent 65%)',
+            'linear-gradient(rgba(249, 115, 22, 0.05) 1px, transparent 1px)',
+            'linear-gradient(90deg, rgba(249, 115, 22, 0.05) 1px, transparent 1px)',
           ].join(','),
           backgroundSize: '100% 100%, 28px 28px, 28px 28px',
         }}
@@ -41,11 +41,11 @@ export default function Sponsors({
 
       {label && (
         <div className="flex items-center justify-center gap-3">
-          <span className="h-px w-10 bg-gradient-to-r from-transparent to-cyan-400/50" />
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-cyan-300">
+          <span className="h-px w-10 bg-gradient-to-r from-transparent to-orange-500/50" />
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-orange-400">
             {label}
           </p>
-          <span className="h-px w-10 bg-gradient-to-l from-transparent to-cyan-400/50" />
+          <span className="h-px w-10 bg-gradient-to-l from-transparent to-orange-500/50" />
         </div>
       )}
 
@@ -73,16 +73,16 @@ function LogoChip({
   return (
     <div
       className={cn(
-        'group relative rounded-xl border border-cyan-400/20 bg-white/[0.04] backdrop-blur-sm transition-all',
-        'hover:border-cyan-400/50 hover:bg-white/[0.08] hover:shadow-[0_0_24px_rgba(34,211,238,0.18)]',
+        'group relative rounded-xl border border-orange-500/20 bg-white/[0.04] backdrop-blur-sm transition-all',
+        'hover:border-orange-500/50 hover:bg-white/[0.08] hover:shadow-[0_0_24px_rgba(249,115,22,0.18)]',
         pad,
       )}
     >
       {/* corner accents — tech ticks */}
-      <span aria-hidden className="absolute left-0 top-0 h-2 w-2 border-l border-t border-cyan-400/60" />
-      <span aria-hidden className="absolute right-0 top-0 h-2 w-2 border-r border-t border-cyan-400/60" />
-      <span aria-hidden className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-cyan-400/60" />
-      <span aria-hidden className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-cyan-400/60" />
+      <span aria-hidden className="absolute left-0 top-0 h-2 w-2 border-l border-t border-orange-500/60" />
+      <span aria-hidden className="absolute right-0 top-0 h-2 w-2 border-r border-t border-orange-500/60" />
+      <span aria-hidden className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-orange-500/60" />
+      <span aria-hidden className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-orange-500/60" />
 
       <div className={cn('flex items-center justify-center rounded-md bg-white', inner)}>
         <Image

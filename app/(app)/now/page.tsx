@@ -53,16 +53,16 @@ export default async function HomeDashboard() {
     <>
       {/* ---------- Hero ---------- */}
       <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(34,211,238,0.18),_transparent_55%)]" aria-hidden />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" aria-hidden />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(249,115,22,0.18),_transparent_55%)]" aria-hidden />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-orange-500/40 to-transparent" aria-hidden />
 
         <div className="relative px-4 pt-6 pb-8">
-          <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-cyan-400">
+          <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-orange-500">
             Bem-vindo, {firstName}
           </p>
           <h1 className="mt-2 text-2xl font-bold leading-tight">
             AI Oil &amp; Gas<br />
-            <span className="text-cyan-400">Conference 2026</span>
+            <span className="text-orange-500">Conference 2026</span>
           </h1>
           <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-300">
             <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-3.5 w-3.5" />{EVENT_DATE}</span>
@@ -75,12 +75,12 @@ export default async function HomeDashboard() {
       <section className="px-4 pt-5">
         {phase === 'before' && eventStart && (
           <Link href="/agenda" className="block">
-            <div className="card flex items-center gap-4 bg-gradient-to-br from-cyan-400/10 to-transparent">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-cyan-400/20 text-cyan-400">
+            <div className="card flex items-center gap-4 bg-gradient-to-br from-orange-500/10 to-transparent">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-500/20 text-orange-500">
                 <CalendarDays className="h-6 w-6" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-400">Começa em</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-orange-500">Começa em</p>
                 <div className="mt-1 text-lg font-bold tabular-nums">
                   <LiveClock targetIso={eventStart.toISOString()} compact />
                 </div>
@@ -91,7 +91,7 @@ export default async function HomeDashboard() {
 
         {phase === 'during' && ongoing && (
           <Link href={`/agenda/${ongoing.id}`} className="block">
-            <div className="card flex items-center gap-3 border-cyan-400/40 bg-gradient-to-br from-cyan-400/15 to-transparent">
+            <div className="card flex items-center gap-3 border-orange-500/40 bg-gradient-to-br from-orange-500/15 to-transparent">
               <span className="relative flex h-2.5 w-2.5 shrink-0">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-red-600" />
@@ -111,7 +111,7 @@ export default async function HomeDashboard() {
           <Link href={`/agenda/${upcoming.id}`} className="block">
             <div className="card flex items-center gap-3">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10">
-                <CalendarDays className="h-5 w-5 text-cyan-400" />
+                <CalendarDays className="h-5 w-5 text-orange-500" />
               </div>
               <div className="min-w-0 flex-1">
                 <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">Próxima sessão</p>
@@ -170,10 +170,10 @@ function BigTile({
   return (
     <Link
       href={href}
-      className="group relative flex h-32 flex-col justify-between overflow-hidden rounded-xl bg-cyan-400/10 p-4 ring-1 ring-cyan-400/30 transition-colors hover:bg-cyan-400/15"
+      className="group relative flex h-32 flex-col justify-between overflow-hidden rounded-xl bg-orange-500/10 p-4 ring-1 ring-orange-500/30 transition-colors hover:bg-orange-500/15"
     >
-      <div className="absolute -right-4 -top-4 flex h-20 w-20 items-center justify-center rounded-full bg-cyan-400/10" aria-hidden>
-        <Icon className="h-8 w-8 text-cyan-400/80" />
+      <div className="absolute -right-4 -top-4 flex h-20 w-20 items-center justify-center rounded-full bg-orange-500/10" aria-hidden>
+        <Icon className="h-8 w-8 text-orange-500/80" />
       </div>
       <div className="relative mt-auto">
         <p className="text-base font-bold leading-tight">{label}</p>
@@ -197,12 +197,12 @@ function Tile({
   return (
     <Link
       href={href}
-      className="group relative flex h-24 flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] p-4 transition-colors hover:border-cyan-400/40 hover:bg-white/[0.06]"
+      className="group relative flex h-24 flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] p-4 transition-colors hover:border-orange-500/40 hover:bg-white/[0.06]"
     >
       <div className="flex items-center justify-between">
-        <Icon className="h-5 w-5 text-cyan-400" />
+        <Icon className="h-5 w-5 text-orange-500" />
         {badge !== undefined && badge > 0 && (
-          <span className="inline-flex min-w-[1.25rem] items-center justify-center rounded-full bg-cyan-400 px-1.5 text-[10px] font-bold text-[#0b1220]">
+          <span className="inline-flex min-w-[1.25rem] items-center justify-center rounded-full bg-orange-500 px-1.5 text-[10px] font-bold text-[#0b1220]">
             {badge > 99 ? '99+' : badge}
           </span>
         )}

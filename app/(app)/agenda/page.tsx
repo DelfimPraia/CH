@@ -80,7 +80,7 @@ export default async function AgendaPage({
               className={cn(
                 'rounded-full px-3 py-1 text-xs font-medium transition',
                 activeFilter.value === f.value
-                  ? 'bg-cyan-400 text-[#0b1220]'
+                  ? 'bg-orange-500 text-[#0b1220]'
                   : 'bg-white/[0.04] text-slate-300 hover:bg-white/[0.08]',
               )}
             >
@@ -108,7 +108,7 @@ export default async function AgendaPage({
             return (
               <li key={s.id} className="card flex gap-3">
                 <div className="flex w-20 shrink-0 flex-col text-xs">
-                  <span className="font-semibold text-cyan-400">
+                  <span className="font-semibold text-orange-500">
                     {new Intl.DateTimeFormat('pt-PT', { hour: '2-digit', minute: '2-digit' }).format(new Date(s.starts_at))}
                   </span>
                   <span className="text-slate-400">
