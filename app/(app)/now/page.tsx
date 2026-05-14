@@ -11,6 +11,7 @@ import {
 import { createClient } from '@/lib/supabase/server';
 import LiveClock from './live-clock';
 import Sponsors from '@/components/sponsors';
+import PushToggle from '@/components/push-toggle';
 
 export const dynamic = 'force-dynamic';
 
@@ -132,8 +133,13 @@ export default async function HomeDashboard() {
         )}
       </section>
 
-      {/* ---------- Big tile ---------- */}
+      {/* ---------- Push notifications opt-in ---------- */}
       <section className="px-4 pt-5">
+        <PushToggle />
+      </section>
+
+      {/* ---------- Big tile ---------- */}
+      <section className="px-4 pt-3">
         <BigTile href="/agenda" icon={CalendarDays} label="Programa" sublabel="Sessões do dia" />
       </section>
 

@@ -9,12 +9,12 @@ type SessionOption = { id: string; title: string; starts_at: string };
 export default function BroadcastForm({ sessions }: { sessions: SessionOption[] }) {
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
-  const [sent, setSent] = useState(false);
+  const [sentMsg, setSentMsg] = useState<string | null>(null);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
-    setSent(false);
+    setSentMsg(null);
     const fd = new FormData(e.currentTarget);
     const form = e.currentTarget;
     startTransition(async () => {
@@ -23,7 +23,11 @@ export default function BroadcastForm({ sessions }: { sessions: SessionOption[] 
         setError(r.error);
         return;
       }
-      setSent(true);
+      setSentMsg(
+        r.push.sent > 0
+          ? `Notificação enviada — ${r.push.sent} push entregue${r.push.sent === 1 ? '' : 's'}.`
+          : 'Notificação enviada (in-app). Nenhum dispositivo com push ativado ainda.',
+      );
       form.reset();
     });
   }
@@ -52,9 +56,9 @@ export default function BroadcastForm({ sessions }: { sessions: SessionOption[] 
       </label>
 
       {error && <p className="text-sm text-red-600">{error}</p>}
-      {sent && (
-        <p className="flex items-center gap-2 text-sm text-emerald-700 dark:text-emerald-300">
-          <CheckCircle2 className="h-4 w-4" /> Notificação enviada.
+      {sentMsg && (
+        <p className="flex items-center gap-2 text-sm text-emerald-300">
+          <CheckCircle2 className="h-4 w-4 shrink-0" /> {sentMsg}
         </p>
       )}
 
