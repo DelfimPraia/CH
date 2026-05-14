@@ -9,7 +9,7 @@ export default function LoginPage({
 }) {
   return (
     <main className="mx-auto flex min-h-dvh max-w-md flex-col p-6">
-      <Link href="/" className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 hover:text-brand-600">
+      <Link href="/" className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 hover:text-orange-600">
         ← AI Oil &amp; Gas 2026
       </Link>
 
@@ -17,7 +17,7 @@ export default function LoginPage({
         <h1 className="text-3xl font-bold">Entrar</h1>
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
           Ainda não tens conta?{' '}
-          <Link href="/register" className="font-medium text-brand-600 hover:underline">
+          <Link href="/register" className="font-medium text-orange-600 hover:underline">
             Inscreve-te
           </Link>
         </p>

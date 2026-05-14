@@ -88,7 +88,7 @@ export default function PeopleTabs({
         <ul className="mt-6 grid gap-3 sm:grid-cols-2">
           {filteredSpeakers.map((s) => (
             <li key={s.id}>
-              <Link href={`/speakers/${s.id}`} className="card flex items-center gap-3 hover:border-brand-400">
+              <Link href={`/speakers/${s.id}`} className="card flex items-center gap-3 hover:border-orange-400">
                 <Avatar name={s.full_name} />
                 <div className="min-w-0">
                   <p className="font-medium leading-tight">{s.full_name}</p>
@@ -112,7 +112,7 @@ export default function PeopleTabs({
                   {[p.job_title, p.company].filter(Boolean).join(' · ') || '—'}
                 </p>
                 {p.area && (
-                  <span className="badge mt-1 bg-brand-100 text-[10px] text-brand-800 dark:bg-brand-900/40 dark:text-brand-200">
+                  <span className="badge mt-1 bg-orange-100 text-[10px] text-orange-800 dark:bg-orange-900/40 dark:text-orange-200">
                     {AREA_LABEL[p.area] ?? p.area}
                   </span>
                 )}
@@ -150,7 +150,7 @@ function Pill({ active, onClick, children }: { active: boolean; onClick: () => v
       onClick={onClick}
       className={cn(
         'rounded-full px-3 py-1 text-xs font-medium transition',
-        active ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300',
+        active ? 'bg-orange-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300',
       )}
     >
       {children}
@@ -160,7 +160,7 @@ function Pill({ active, onClick, children }: { active: boolean; onClick: () => v
 
 function Avatar({ name }: { name: string }) {
   return (
-    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-100 font-semibold text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
+    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-100 font-semibold text-orange-700 dark:bg-orange-900/40 dark:text-orange-200">
       {name.split(' ').slice(0, 2).map((n) => n[0]).join('')}
     </div>
   );

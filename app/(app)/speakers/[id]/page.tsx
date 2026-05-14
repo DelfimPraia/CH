@@ -27,7 +27,7 @@ export default async function SpeakerDetail({ params }: { params: { id: string }
       </Link>
 
       <div className="mt-6 flex flex-col items-start gap-4">
-        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-brand-100 text-2xl font-semibold text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
+        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-orange-100 text-2xl font-semibold text-orange-700 dark:bg-orange-900/40 dark:text-orange-200">
           {speaker.full_name.split(' ').slice(0, 2).map((n: string) => n[0]).join('')}
         </div>
         <div>
@@ -68,7 +68,7 @@ export default async function SpeakerDetail({ params }: { params: { id: string }
               if (!s) return null;
               return (
                 <li key={s.id}>
-                  <Link href={`/agenda/${s.id}`} className="card block hover:border-brand-400">
+                  <Link href={`/agenda/${s.id}`} className="card block hover:border-orange-400">
                     <p className="font-medium">{s.title}</p>
                     <p className="mt-0.5 text-xs text-slate-500">
                       {fmt.format(new Date(s.starts_at))}

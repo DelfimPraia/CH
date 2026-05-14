@@ -111,7 +111,7 @@ export default function QA({
   return (
     <section className="mt-8">
       <div className="flex items-center gap-2">
-        <MessageCircle className="h-5 w-5 text-brand-600" />
+        <MessageCircle className="h-5 w-5 text-orange-600" />
         <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
           Q&amp;A · {questions.length}
         </h2>
@@ -153,8 +153,8 @@ export default function QA({
                   className={cn(
                     'flex w-12 shrink-0 flex-col items-center justify-center rounded-lg border text-xs font-semibold transition',
                     upvoted
-                      ? 'border-brand-500 bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300'
-                      : 'border-slate-200 bg-white text-slate-600 hover:border-brand-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400',
+                      ? 'border-orange-500 bg-orange-50 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300'
+                      : 'border-slate-200 bg-white text-slate-600 hover:border-orange-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400',
                   )}
                   aria-label={upvoted ? 'Remover voto' : 'Votar'}
                 >

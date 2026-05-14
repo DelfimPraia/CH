@@ -38,7 +38,7 @@ export default async function MePage() {
             {[profile?.job_title, profile?.company].filter(Boolean).join(' · ') || profile?.email}
           </p>
           {profile?.area && (
-            <span className="badge mt-2 bg-brand-100 text-brand-800 dark:bg-brand-900/40 dark:text-brand-200">
+            <span className="badge mt-2 bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200">
               {AREA_LABELS[profile.area] ?? profile.area}
             </span>
           )}

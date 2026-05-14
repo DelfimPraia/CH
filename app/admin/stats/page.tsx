@@ -82,7 +82,7 @@ export default async function StatsPage() {
                   <span className="tabular-nums text-slate-500">{n} <span className="text-xs text-slate-400">· {pct.toFixed(0)}%</span></span>
                 </div>
                 <div className="h-2 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
-                  <div className="h-full rounded-full bg-brand-500" style={{ width: `${pct}%` }} />
+                  <div className="h-full rounded-full bg-orange-500" style={{ width: `${pct}%` }} />
                 </div>
               </li>
             );
@@ -97,7 +97,7 @@ export default async function StatsPage() {
         <ol className="mt-3 space-y-2">
           {topSessions.map((row, i) => (
             <li key={row.id} className="card flex items-center gap-3">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-700 dark:bg-orange-900/40 dark:text-orange-200">
                 {i + 1}
               </span>
               <div className="min-w-0 flex-1">
@@ -106,7 +106,7 @@ export default async function StatsPage() {
                   {new Intl.DateTimeFormat('pt-PT', { hour: '2-digit', minute: '2-digit' }).format(new Date(row.session!.starts_at))}
                 </p>
               </div>
-              <span className="tabular-nums text-sm font-semibold text-brand-600">★ {row.count}</span>
+              <span className="tabular-nums text-sm font-semibold text-orange-600">★ {row.count}</span>
             </li>
           ))}
         </ol>
